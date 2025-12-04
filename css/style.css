@@ -69,13 +69,40 @@ header {
     color: #4ea8de;
 }
 
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* space between icon and text */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-links li a i {
+    font-size: 18px;
+}
+.nav-links li a:hover {
+    color: #ffcf40;  
+}
+
+.nav-links li a:hover i {
+    transform: scale(1.1);
+    transition: 0.2s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
 .menu-btn {
-    display: none;
+    display: none; /* hidden on desktop */
     cursor: pointer;
     font-size: 28px;
     color: white;
 }
 
+/* Mobile */
 @media(max-width: 768px) {
     .nav-links {
         flex-direction: column;
@@ -84,41 +111,36 @@ header {
         top: 80px;
         right: 0;
         width: 200px;
-        display: none;
+        display: none; /* hide initially */
         padding: 20px;
         border-radius: 0 0 8px 8px;
     }
 
     .nav-links.active {
-        display: flex;
+        display: flex; /* show when toggled */
     }
 
     .menu-btn {
-        display: block;
+        display: block; /* show hamburger on mobile */
     }
 }
 
 /* ================== HERO SECTIONS ================== */
+
+/* Shared styles for all hero sections */
 .hero,
 .about-hero,
 .contact-hero,
 .services-hero {
     position: relative;
-    background: url('/images/supremecourt.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
-    padding: 140px 20px;
+    padding: 120px 20px;
     border-radius: 10px;
-    background-attachment: fixed;
     overflow: hidden;
 }
 
-.about-hero,
-.contact-hero,
-.services-hero {
-    padding: 120px 20px;
-}
-
+/* Overlay for all hero sections */
 .hero::before,
 .about-hero::before,
 .contact-hero::before,
@@ -129,54 +151,46 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25); /* semi-transparent overlay */
     z-index: 0;
 }
 
+/* Hero text and button */
 .hero h1,
-.hero p,
-.hero .hero-btn,
 .about-hero h1,
-.about-hero p,
 .contact-hero h1,
-.contact-hero p,
 .services-hero h1,
-.services-hero p {
+.hero p,
+.about-hero p,
+.contact-hero p,
+.services-hero p,
+.hero .hero-btn {
     position: relative;
     z-index: 1;
 }
 
+/* Headings */
 .hero h1,
 .about-hero h1,
 .contact-hero h1,
 .services-hero h1 {
     font-size: 42px;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-.about-hero h1,
-.contact-hero h1,
-.services-hero h1 {
     margin-bottom: 10px;
+    text-shadow: 0 2px 5px rgba(255, 255, 255);
 }
 
+/* Paragraphs */
 .hero p,
 .about-hero p,
 .contact-hero p,
 .services-hero p {
-    font-size: 20px;
+    font-size: 18px;
     max-width: 700px;
     margin: auto;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 3px rgba(255, 255, 255);
 }
 
-.about-hero p,
-.contact-hero p,
-.services-hero p {
-    font-size: 18px;
-}
-
+/* Hero button (only for home page if needed) */
 .hero .hero-btn {
     display: inline-block;
     margin-top: 20px;
@@ -191,6 +205,24 @@ header {
 .hero .hero-btn:hover {
     background: #357ab8;
 }
+
+/* ================== Background Images per Page ================== */
+.hero {
+    background: url('../images/supremecourt.jpg') center/cover no-repeat;
+}
+
+.about-hero {
+    background: url('../images/about.jpg') center/cover no-repeat;
+}
+
+.services-hero {
+    background: url('../images/services.jpg') center/cover no-repeat;
+}
+
+.contact-hero {
+    background: url('../images/contact.jpg') center/cover no-repeat;
+}
+
 
 /* ================== SERVICES SECTION (HOME PAGE) ================== */
 .services {
